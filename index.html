@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <title>Sistema de Cadastro de Voluntários</title>
+    <style>
+        .btn.btn-margin {
+            margin-bottom: 4px !important;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <!-- <div class="row" >
+            <div class="col">
+                <div class="card">
+                    <div class="card-header">
+                        Dados Pessoais
+                    </div>
+                    <div class="card-body">
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <label for="voluntario_nome" class="form-label">Nome</label>
+                                <input type="text" class="form-control" id="voluntario_nome">
+                            </div>
+                            <div class="col-6">
+                                <label for="voluntario_cpf" class="form-label">CPF</label>
+                                <input type="number" class="form-control" id="voluntario_cpf">
+                            </div>
+                            <div class="col-6">
+                                <label for="voluntario_rg" class="form-label">RG</label>
+                                <input type="number" class="form-control" id="voluntario_rg">
+                            </div>
+                            <div class="col-6">
+                                <label for="voluntario_nacionalidade" class="form-label">Nacionalidade</label>
+                                <input type="text" class="form-control" id="voluntario_nacionalidade">
+                            </div>
+                            <div class="col-6">
+                                <label for="voluntario_naturalidade" class="form-label">Naturalidade</label>
+                                <input type="text" class="form-control" id="voluntario_naturalidade">
+                            </div>
+                            <div class="col-3">
+                                <label for="voluntario_dtnascimento" class="form-label">Data de Nascimento</label>
+                                <input type="date" class="form-control" id="voluntario_dtnascimento">
+                            </div>
+                            <div class="col-3">
+                                <label for="voluntario_sexo" class="form-label">Sexo</label>
+                                <select id="voluntario_sexo" class="form-select">
+                                    <option selected>Masculino</option>
+                                    <option>Feminino</option>
+                                    <option>Outro</option>
+                                </select>
+                            </div>
+                            <div class="col-6">
+                                <label for="voluntario_estcivil" class="form-label">Estado Civil</label>
+                                <select id="voluntario_estcivil" class="form-select">
+                                    <option selected>Solteiro(a)</option>
+                                    <option>Casado(a)</option>
+                                    <option>Viúvo(a)</option>
+                                    <option>Separado(a)</option>
+                                </select>
+                            </div>
+                            <div class="row g-2">
+                                <div class="col-4">
+                                    <label class="form-label">É Doador de Sangue?</label>
+                                    <div class="col">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="voluntario_doasangue" id="voluntario_doasangue1" value="Sim">
+                                            <label class="form-check-label" for="voluntario_doasangue1">Sim</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="voluntario_doasangue" id="voluntario_doasangue2" value="Não" checked>
+                                            <label class="form-check-label" for="voluntario_doasangue2">Não</label>
+                                        </div>
+                                    </div> 
+                                </div>
+                                <div class="col-2">
+                                    <label for="voluntario_sangtipo" class="form-label">Tipo Sanguineo</label>
+                                    <select id="voluntario_sangtipo" class="form-select">
+                                        <option selected>O+</option>
+                                        <option>A+</option>
+                                        <option>B+</option>
+                                        <option>AB+</option>
+                                        <option>O-</option>
+                                        <option>A-</option>
+                                        <option>B-</option>
+                                        <option>AB-</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row g-2">
+                                <div class="col-4">
+                                    <label class="form-label">Possui Carteira Nacional de Habilitação?</label>
+                                    <div class="col">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="voluntario_temcnh" id="voluntario_temcnh1" value="Sim">
+                                            <label class="form-check-label" for="voluntario_temcnh1">Sim</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="voluntario_temcnh" id="voluntario_temcnh2" value="Não" checked>
+                                            <label class="form-check-label" for="voluntario_temcnh2">Não</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <label for="voluntario_cnhtipo" class="form-label">Categoria</label>
+                                    <select id="voluntario_cnhtipo" class="form-select">
+                                        <option selected>A</option>
+                                        <option>B</option>
+                                        <option>C</option>
+                                        <option>D</option>
+                                        <option>E</option>
+                                        <option>AB</option>
+                                        <option>AC</option>
+                                        <option>AD</option>
+                                        <option>AE</option>
+                                    </select>
+                                </div>
+                                <div class="col-4">
+                                    <label for="voluntario_numerocnh" class="form-label">Número</label>
+                                    <input type="number" class="form-control" id="voluntario_numerocnh">
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <!-- <div class="row" >
+            <div class="col">
+                <div class="card">
+                    <div class="card-header">
+                        Contato
+                    </div>
+                    <div class="card-body">
+                        <div class="row g-3">
+                            <div class="col-5">
+                                <label for="voluntario_telefone" class="form-label">Telefones</label>
+                                <input type="number" class="form-control" id="voluntario_telefone">
+                            </div>
+                            <div class="col-5">
+                                <label for="voluntario_tipotelefone" class="form-label">&nbsp;</label>
+                                <select id="voluntario_tipotelefone" class="form-select">
+                                    <option selected>Celular Pessoal</option>
+                                    <option>Celular Comercial</option>
+                                    <option>Fixo Comercial</option>
+                                    <option>Fixo Pessoal</option>
+                                </select>
+                            </div>
+                            <div class="col-6">
+                                <label for="voluntario_cep" class="form-label">CEP</label>
+                                <input type="number" class="form-control" id="voluntario_cep">
+                            </div>
+                            <div class="col-6">
+                                <label for="voluntario_cidade" class="form-label">Cidade</label>
+                                <input type="text" class="form-control" id="voluntario_cidade">
+                            </div>
+                            <div class="col-12">
+                                <label for="voluntario_endereço" class="form-label">Endereço</label>
+                                <input type="text" class="form-control" id="voluntario_endereço">
+                            </div>
+                            <div class="col-3">
+                                <label for="voluntario_endnumero" class="form-label">Número</label>
+                                <input type="number" class="form-control" id="voluntario_endnumero">
+                            </div>
+                            <div class="col-5">
+                                <label for="voluntario_endbairro" class="form-label">Bairro</label>
+                                <input type="text" class="form-control" id="voluntario_endbairro">
+                            </div><div class="col-4">
+                                <label for="voluntario_endcomplemento" class="form-label">Complemento</label>
+                                <input type="text" class="form-control" id="voluntario_endcomplemento">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <div class="row" >
+            <div class="col">
+                <div class="card">
+                    <div class="card-header">
+                        Atuação
+                    </div>
+                    <div class="card-body">
+                        <div class="row g-3">
+                            <div class="col-5">
+                                <label for="voluntario_escolaridade" class="form-label">Escolaridade</label>
+                                <select id="voluntario_escolaridade" class="form-select">
+                                    <option selected disabled>Selecione o grau de escolaridade</option>
+                                    <option value="11">Doutorado</option>
+                                    <option value="4">Ensino Fundamental Completo</option>
+                                    <option value="3">Ensino Fundamental Incompleto</option>
+                                    <option value="6">Ensino Médio Completo</option>
+                                    <option value="5">Ensino Médio Incompleto</option>
+                                    <option value="9">Especialização</option>
+                                    <option value="2">Indiferente</option>
+                                    <option value="10">Mestrado</option>
+                                    <option value="12">PhD</option>
+                                    <option value="8">Superior Completo</option>
+                                    <option value="7">Superior Incompleto</option>
+                                    <option value="1">Outros</option>
+                                </select>
+                            </div>
+                            <div class="col-7">
+                                <label for="voluntario_formacao" class="form-label">Formação</label>
+                                <select id="voluntario_formacao" class="form-select">
+                                    <option selected disabled>Selecione a area de formação</option>
+                                    <option value="7">Administração</option>
+                                    <option value="8">Administração Pública</option>
+                                    <option value="9">Agronegócio</option>
+                                    <option value="2">Alimentos</option>
+                                    <option value="4">Análise de Sistemas &amp; Tecnologia da Informação</option>
+                                    <option value="10">Antropologia</option>
+                                    <option value="3">Aquicultura</option>
+                                    <option value="11">Arqueologia</option>
+                                    <option value="12">Arquitetura</option>
+                                    <option value="13">Arquivologia</option>
+                                    <option value="14">Artes Cênicas</option>
+                                    <option value="15">Artes Plásticas</option>
+                                    <option value="16">Artes Visuais</option>
+                                    <option value="5">Astronomia</option>
+                                    <option value="17">Automação de Escritório</option>
+                                    <option value="6">Automação Industrial</option>
+                                    <option value="26">Biblioteconomia</option>
+                                    <option value="18">Bioenergia sucro-alcooleira</option>
+                                    <option value="23">Bioengenharia</option>
+                                    <option value="19">Biologia</option>
+                                    <option value="20">Biologia marinha</option>
+                                    <option value="24">Bioquímica</option>
+                                    <option value="21">Biotecnologia</option>
+                                    <option value="25">Biotecnologia</option>
+                                    <option value="22">Botânica</option>
+                                    <option value="210">Brigadista de Incêndio</option>
+                                    <option value="32">Ciência da Computação</option>
+                                    <option value="42">Ciência da Informação</option>
+                                    <option value="27">Ciência dos Alimentos</option>
+                                    <option value="37">Ciência e Tecnologia</option>
+                                    <option value="28">Ciências Ambientais</option>
+                                    <option value="38">Ciências Atuariais</option>
+                                    <option value="30">Ciências Biológicas</option>
+                                    <option value="40">Ciências Contábeis</option>
+                                    <option value="29">Ciências da Atividade Física</option>
+                                    <option value="31">Ciências do Esporte</option>
+                                    <option value="41">Ciências Econômicas</option>
+                                    <option value="33">Ciências Exatas</option>
+                                    <option value="34">Ciências Moleculares</option>
+                                    <option value="35">Ciências Naturais</option>
+                                    <option value="43">Ciências Políticas</option>
+                                    <option value="44">Ciências Sociais</option>
+                                    <option value="45">Cinema</option>
+                                    <option value="39">Comércio Exterior</option>
+                                    <option value="36">Computação Científica</option>
+                                    <option value="46">Comunicação Social</option>
+                                    <option value="47">Cooperativismo</option>
+                                    <option value="48">Dança</option>
+                                    <option value="52">Desenho industrial</option>
+                                    <option value="49">Design</option>
+                                    <option value="50">Design de interiores</option>
+                                    <option value="51">Design de moda</option>
+                                    <option value="53">Direito</option>
+                                    <option value="61">Ecologia</option>
+                                    <option value="54">Editoração</option>
+                                    <option value="55">Educação artística</option>
+                                    <option value="63">Educação Física</option>
+                                    <option value="56">Educação musical</option>
+                                    <option value="66">Eletrônica</option>
+                                    <option value="122">Eletrônica Embarcada</option>
+                                    <option value="64">Enfermagem</option>
+                                    <option value="67">Engenharia Aeroespacial</option>
+                                    <option value="68">Engenharia Aeronáutica</option>
+                                    <option value="69">Engenharia Agrícola</option>
+                                    <option value="62">Engenharia Ambiental</option>
+                                    <option value="74">Engenharia Biofísica</option>
+                                    <option value="75">Engenharia Biomédica</option>
+                                    <option value="76">Engenharia Cartográfica</option>
+                                    <option value="77">Engenharia Civil</option>
+                                    <option value="111">Engenharia da Qualidade</option>
+                                    <option value="70">Engenharia de Agrimensura</option>
+                                    <option value="71">Engenharia de Alimentos</option>
+                                    <option value="72">Engenharia de Áudio</option>
+                                    <option value="78">Engenharia de Computação</option>
+                                    <option value="79">Engenharia de Controle e Automação</option>
+                                    <option value="93">Engenharia de Informação</option>
+                                    <option value="94">Engenharia de Instrumentação</option>
+                                    <option value="95">Engenharia de Instrumentação (Robótica) </option>
+                                    <option value="96">Engenharia de Manufatura</option>
+                                    <option value="97">Engenharia de Manutenção</option>
+                                    <option value="98">Engenharia de Materiais</option>
+                                    <option value="104">Engenharia de Minas</option>
+                                    <option value="108">Engenharia de Pesca</option>
+                                    <option value="109">Engenharia de Petróleo</option>
+                                    <option value="110">Engenharia de Produção</option>
+                                    <option value="114">Engenharia de Serviços</option>
+                                    <option value="115">Engenharia de Sistemas</option>
+                                    <option value="116">Engenharia de Sistemas Eletrônicos</option>
+                                    <option value="117">Engenharia de Software</option>
+                                    <option value="118">Engenharia de Tecidos</option>
+                                    <option value="119">Engenharia de Telecomunicações</option>
+                                    <option value="121">Engenharia de Transportes</option>
+                                    <option value="80">Engenharia Econômica</option>
+                                    <option value="81">Engenharia Elétrica</option>
+                                    <option value="82">Engenharia Eletrônica</option>
+                                    <option value="83">Engenharia Estrutural</option>
+                                    <option value="84">Engenharia Física</option>
+                                    <option value="85">Engenharia Florestal</option>
+                                    <option value="87">Engenharia Geográfica</option>
+                                    <option value="88">Engenharia Geológica</option>
+                                    <option value="89">Engenharia Hidráulica</option>
+                                    <option value="90">Engenharia Humana</option>
+                                    <option value="91">Engenharia Industrial</option>
+                                    <option value="92">Engenharia Industrial Madeireira</option>
+                                    <option value="99">Engenharia Mecânica</option>
+                                    <option value="100">Engenharia Mecatrônica</option>
+                                    <option value="101">Engenharia Metalúrgica</option>
+                                    <option value="102">Engenharia Militar</option>
+                                    <option value="103">Engenharia Multimídia</option>
+                                    <option value="105">Engenharia Naval e Oceânica</option>
+                                    <option value="106">Engenharia Nuclear</option>
+                                    <option value="107">Engenharia Óptica</option>
+                                    <option value="112">Engenharia Química</option>
+                                    <option value="113">Engenharia Sanitária</option>
+                                    <option value="120">Engenharia Têxtil</option>
+                                    <option value="73">Engenharia Urbana</option>
+                                    <option value="57">Escultura</option>
+                                    <option value="65">Esportes</option>
+                                    <option value="58">Estatística</option>
+                                    <option value="59">Estudos literários</option>
+                                    <option value="60">Eventos</option>
+                                    <option value="127">Farmacêutica</option>
+                                    <option value="124">Filosofia</option>
+                                    <option value="128">Física</option>
+                                    <option value="129">Física Biológica</option>
+                                    <option value="130">Física Computacional</option>
+                                    <option value="131">Física Médica</option>
+                                    <option value="125">Fisioterapia</option>
+                                    <option value="126">Fonoaudiologia</option>
+                                    <option value="123">Fotografia</option>
+                                    <option value="132">Gastronomia</option>
+                                    <option value="140">Geociências</option>
+                                    <option value="141">Geofísica</option>
+                                    <option value="133">Geografia</option>
+                                    <option value="142">Geologia</option>
+                                    <option value="143">Gerontologia</option>
+                                    <option value="134">Gestão Ambiental</option>
+                                    <option value="139">Gestão da Produção de Calçados</option>
+                                    <option value="135">Gestão de Comércio Internacional</option>
+                                    <option value="136">Gestão de Empresas</option>
+                                    <option value="138">Gestão de Políticas Públicas</option>
+                                    <option value="137">Gestão Empresarial</option>
+                                    <option value="144">História</option>
+                                    <option value="145">História da arte</option>
+                                    <option value="146">Hotelaria</option>
+                                    <option value="147">Informática</option>
+                                    <option value="148">Informática biomédica</option>
+                                    <option value="149">Jornalismo</option>
+                                    <option value="150">Lazer</option>
+                                    <option value="151">Letras</option>
+                                    <option value="152">Linguística</option>
+                                    <option value="153">Logística</option>
+                                    <option value="154">Logística Aeroportuária</option>
+                                    <option value="155">Logística e Transportes</option>
+                                    <option value="169">Marketing</option>
+                                    <option value="162">Matemática</option>
+                                    <option value="163">Matemática Aplicada</option>
+                                    <option value="164">Matemática Computacional</option>
+                                    <option value="165">Mecânica - processos de produção</option>
+                                    <option value="166">Mecatrônica</option>
+                                    <option value="158">Medicina</option>
+                                    <option value="159">Medicina Veterinária</option>
+                                    <option value="160">Meio ambiente e Recursos Hídricos</option>
+                                    <option value="167">Metalurgia</option>
+                                    <option value="168">Meteorologia</option>
+                                    <option value="161">Microbiologia</option>
+                                    <option value="170">Museologia</option>
+                                    <option value="171">Música</option>
+                                    <option value="172">Nutrição</option>
+                                    <option value="174">Obstetrícia</option>
+                                    <option value="173">Oceanografia</option>
+                                    <option value="175">Odontologia</option>
+                                    <option value="181">Paisagismo</option>
+                                    <option value="182">Pedagogia</option>
+                                    <option value="183">Pintura</option>
+                                    <option value="178">Processamento de Dados</option>
+                                    <option value="177">Processos Gerenciais</option>
+                                    <option value="179">Produção</option>
+                                    <option value="180">Produção de Materiais Plásticos</option>
+                                    <option value="86">Prospecção Geofísica</option>
+                                    <option value="176">Psicologia</option>
+                                    <option value="184">Psicopedagogia</option>
+                                    <option value="185">Publicidade</option>
+                                    <option value="156">Química</option>
+                                    <option value="186">Química Ambiental</option>
+                                    <option value="187">Química Industrial</option>
+                                    <option value="189">Radialismo</option>
+                                    <option value="188">Radiologia</option>
+                                    <option value="190">Recursos humanos</option>
+                                    <option value="191">Relações internacionais</option>
+                                    <option value="192">Relações públicas</option>
+                                    <option value="193">Saneamento</option>
+                                    <option value="196">Saúde - projetos, manutenção e operação de aparelhos médico-hospitalares</option>
+                                    <option value="198">Secretariado</option>
+                                    <option value="194">Segurança da Informação</option>
+                                    <option value="199">Serviço social</option>
+                                    <option value="197">Silvicultura</option>
+                                    <option value="195">Sistemas de Informação</option>
+                                    <option value="200">Teatro</option>
+                                    <option value="203">Tecnologia da Informação</option>
+                                    <option value="206">Tecnologias em saúde - oftálmica e radiológica</option>
+                                    <option value="204">Telecomunicações</option>
+                                    <option value="205">Telemática</option>
+                                    <option value="201">Teologia</option>
+                                    <option value="207">Terapia Ocupacional</option>
+                                    <option value="157">Transporte Hidroviário</option>
+                                    <option value="202">Turismologia</option>
+                                    <option value="208">Urbanismo</option>
+                                    <option value="209">Zootecnia</option>
+                                    <option value="1">Outros</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <!-- Campo dinamico, aparecer quando a opção "outros" for selecionada no select voluntario_formacao" -->
+                                <label for="voluntario_outrosformacao" class="form-label">Especifique a formação</label>
+                                <input type="number" class="form-control" id="voluntario_outrosformacao">
+                                <div class="form-text">Se você escolheu a opção "Outros" em formação então descreva a sua formação. Caso contrário deixe esse campo em branco!</div>
+                            </div>
+                            <div class="col-12">
+                                <!-- Campo de seleção dinâmico "dropdown with search", disponibilizar opções via API para selecionar -->
+                                <label for="voluntario_profissao" class="form-label">Profissão</label>
+                                <input type="text" class="form-control" id="voluntario_profissao">
+                            </div>
+                            <div class="col-12">
+                                <!-- Campo dinamico, aparecer quando a opção "outros" for selecionada no select voluntario_profissao" -->
+                                <label for="voluntario_outrosprofissao" class="form-label">Especifique a formação</label>
+                                <input type="number" class="form-control" id="voluntario_outrosprofissao">
+                                <div class="form-text">Se você escolheu a opção "Outros" em profissão então descreva a sua profissão. Caso contrário deixe esse campo em branco!</div>
+                            </div>
+                            <div class="row g-2">
+                                <div class="col-12">
+                                    <label class="form-label">Gostaria de exercer sua profissão como trabalho voluntário?</label>
+                                    <div class="col">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="voluntario_aceivol" id="voluntario_aceivol1" value="Sim">
+                                            <label class="form-check-label" for="voluntario_aceivol1">Sim</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="voluntario_aceivol" id="voluntario_aceivol2" value="Não">
+                                            <label class="form-check-label" for="voluntario_aceivol2">Não</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-5">
+                                <label for="voluntario_sitprofissional" class="form-label">Situação Profissional</label>
+                                <select id="voluntario_sitprofissional" class="form-select">
+                                    <option selected disabled>Selecione a situação profissional</option>
+                                    <option value="2">Autônomo - Profissional Liberal</option>
+                                    <option value="3">Desempregado</option>
+                                    <option value="4">Dona de Casa</option>
+                                    <option value="5">Empresário</option>
+                                    <option value="6">Estudante</option>
+                                    <option value="7">Funcionário de Empresa Privada</option>
+                                    <option value="8">Funcionário de ONG</option>
+                                    <option value="9">Funcionário Público</option>
+                                    <option value="1">Outros</option>
+                                </select>
+                            </div>
+                            <div class="row g-2">
+                                <div class="col-12">
+                                    <label class="form-label">Já fez algum trabalho voluntário?</label>
+                                    <div class="col">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="voluntario_trabvol" id="voluntario_trabvol1" value="Sim">
+                                            <label class="form-check-label" for="voluntario_trabvol2">Sim</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="voluntario_trabvol" id="voluntario_trabvol1" value="Não">
+                                            <label class="form-check-label" for="voluntario_trabvol2">Não</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row g-2">
+                                <div class="col-12">
+                                    <label class="form-label">É usuário de rádio cidadão?</label>
+                                    <div class="col">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="voluntario_radiocid" id="voluntario_radiocid1" value="Sim">
+                                            <label class="form-check-label" for="voluntario_radiocid1">Sim</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="voluntario_radiocid" id="voluntario_radiocid2" value="Não">
+                                            <label class="form-check-label" for="voluntario_radiocid2">Não</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" >
+            <div class="col">
+                <div class="card">
+                    <div class="card-header">
+                        Dados Complementares
+                    </div>
+                    <div class="card-body">
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <label for="voluntario_pqvoluntario" class="form-label">Por que quer ser voluntário?</label>
+                                <textarea class="form-control" id="voluntario_pqvoluntario" rows="3"></textarea>
+                            </div>
+                            <div id="voluntario_areainteresse" class="col-12">
+                                <label for="voluntario_areainteresse" class="form-label">Quais áreas despertam seu interesse?</label><br>
+                            </div>
+                            <div id="voluntario_publcoafinidade" class="col-12">
+                                <label for="voluntario_publcoafinidade" class="form-label">Público que tem afinidade?</label><br>
+                                
+                            </div>
+                            <div id="voluntario_atvinteresse" class="col-12">
+                                <label for="voluntario_atvfavorita" class="form-label">Qual ou quais atividades você gostaria de realizar como voluntário?</label><br>
+                            </div>
+                            <div class="col-12">
+                                <label for="voluntario_habilvoluntario" class="form-label">Faça uma breve descrição sobre suas habilidades e como você pode ajudar a Defesa Civil Estadual</label>
+                                <textarea class="form-control" id="voluntario_habilvoluntario" rows="3"></textarea>
+                            </div>
+                            <div class="col-12">
+                                <label for="voluntario_palavrachave" class="form-label">Faça uma lista de palavras-chave que serão utilizadas pela Defesa Civil Estadual para encontrar você</label>
+                                <textarea class="form-control" id="voluntario_palavrachave" rows="3"></textarea>
+                            </div>
+                            <div class="row g-2">
+                                <label for="voluntario_tempodisp" class="form-label">Qual é a sua disponibilidade de horas mensais para a atividade voluntária?</label>
+                                <div class="col-3">
+                                    <input type="number" class="form-control" id="voluntario_tempodisp">
+                                    <div class="form-text">Informe um valor entre 1 e 24</div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <label for="voluntario_dispsemana" class="form-label">Quais dias da semana tem disponibilidade?</label><br>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="voluntario_dispsemana1" value="Segunda">
+                                    <label class="form-check-label" for="voluntario_dispsemana1">Segunda-Feira</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="voluntario_dispsemana2" value="Terça">
+                                    <label class="form-check-label" for="voluntario_dispsemana2">Terça-Feira</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="voluntario_dispsemana3" value="Quarta">
+                                    <label class="form-check-label" for="voluntario_dispsemana3">Quarta-Feira</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="voluntario_dispsemana4" value="Quinta">
+                                    <label class="form-check-label" for="voluntario_dispsemana4">Quinta-Feira</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="voluntario_dispsemana5" value="Sexta">
+                                    <label class="form-check-label" for="voluntario_dispsemana5">Sexta-Feira</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="voluntario_dispsemana6" value="Sábado">
+                                    <label class="form-check-label" for="voluntario_dispsemana6">Sábado</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="voluntario_dispsemana7" value="Domingo">
+                                    <label class="form-check-label" for="voluntario_dispsemana7">Domingo</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <label for="voluntario_dispperiodo" class="form-label">Quais dias da semana tem disponibilidade?</label><br>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="voluntario_dispperiodo1" value="Manhã">
+                                    <label class="form-check-label" for="voluntario_dispperiodo1">Manhã</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="voluntario_dispperiodo2" value="Tarde">
+                                    <label class="form-check-label" for="voluntario_dispperiodo2">Tarde</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="voluntario_dispperiodo3" value="Noite">
+                                    <label class="form-check-label" for="voluntario_dispperiodo3">Noite</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.js"
+    integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY="
+    crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+    <script>
+        $( document ).ready(function() {
+            $([
+                'Arte e Cultura',
+                'Assistência Social',
+                'Cidadania e Direitos Humanos',
+                'Educação',
+                'Esportes e Lazer',
+                'Meio Ambiente',
+                'Saúde'
+            ]).each(function(index, value) {
+                $('#voluntario_areainteresse').append(`
+                    <input type="checkbox" class="btn-check" id="voluntario_areainteresse` + index + `" autocomplete="off">
+                    <label class="btn btn-margin btn-outline-primary" for="voluntario_areainteresse` + index + `">` + value + `</label>
+                `);
+            });
+
+            $([
+                'Adolescentes',
+                'Adultos',
+                'Colaboradores da Entidade',
+                'Crianças',
+                'Fauna (animais)',
+                'Flora (clima, vegetação, etc.)',
+                'Idosos',
+                'Jovens',
+                'Pessoas com Deficiência',
+                'Serviçoes para Entidade (manutenção, reformas, administração, etc.)'
+            ]).each(function(index, value){
+                $('#voluntario_publcoafinidade').append(`
+                    <input type="checkbox" class="btn-check" id="voluntario_publcoafinidade` + index + `" autocomplete="off">
+                    <label class="btn btn-margin btn-outline-secondary" for="voluntario_publcoafinidade` + index + `">` + value + `</label>
+                `);
+            });
+
+            $([
+                'Ações Emergenciais',
+                'Apoio em Comunicação',
+                'Apoio Emocional',
+                'Apoio Jurídico',
+                'Arquivo',
+                'Arrecadar e Distribuir Doações (Agasalhos, Alimentos, etc.)',
+                'Artesanato - Trabalhos Manuais',
+                'Assistência a Cegos',
+                'Assistência a Deficientes Auditivos',
+                'Assistência a Deficientes Físicos',
+                'Assistência a Deficientes Mentais',
+                'Assistência a Pessoas Idosas',
+                'Assistente Social',
+                'Atendimento ao Público - Recepção - Relações Públicas',
+                'Atendimento Emocional',
+                'Atividades Administrativas',
+                'Atividades com Plantas e Jardins',
+                'Atuar em Parque ou Reservas Ecológicas',
+                'Auxiliar no Planejamento Orçamentário Familiar',
+                'Capacitação de Liderança Comunitária',
+                'Captação de Recursos',
+                'Compilação e análise de dados estatísticos',
+                'Comunicação Social - Jornalismo',
+                'Contar - Ler - Ouvir Histórias',
+                'Conversar - Ouvir Pessoas',
+                'Cozinha - Alimentação - Distribuição de Alimentos',
+                'Cuidador - Cuidadora',
+                'Desenvolvimento de Tecnologias Alternativas (Moradia, etc)',
+                'Desenvolvimento do Voluntariado',
+                'Empreendedorismo Social (Ações e Projetos)',
+                'Gestão de Voluntários',
+                'Nutrição',
+                'Odontologia - Higiene Bucal',
+                'Organizar - Promover - Trabalhar em Eventos',
+                'Preservação da Fauna e da Flora',
+                'Recuperação de Infra-Estrutura de Escolas - Hospitais - Instituições',
+                'Saúde e Saúde Preventiva - Primeiros Socorros',
+                'Serviço Social'
+            ]).each(function(index, value) {
+                $('#voluntario_atvinteresse').append(`
+                    <input type="checkbox" class="btn-check" id="voluntario_atvinteresse` + index + `" autocomplete="off">
+                    <label class="btn btn-margin btn-outline-success" for="voluntario_atvinteresse` + index + `">` + value + `</label>
+                `);
+            });
+        });
+    </script>
+</body>
+</html>
