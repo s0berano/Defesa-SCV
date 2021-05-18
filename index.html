@@ -438,7 +438,7 @@
                             <div class="col-12">
                                 <!-- Campo dinamico, aparecer quando a opção "outros" for selecionada no select voluntario_formacao" -->
                                 <label for="voluntario_outrosformacao" class="form-label">Especifique a formação</label>
-                                <input type="number" class="form-control" id="voluntario_outrosformacao">
+                                <input type="text" class="form-control" id="voluntario_outrosformacao">
                                 <div class="form-text">Se você escolheu a opção "Outros" em formação então descreva a sua formação. Caso contrário deixe esse campo em branco!</div>
                             </div>
                             <div class="col-12">
@@ -449,7 +449,7 @@
                             <div class="col-12">
                                 <!-- Campo dinamico, aparecer quando a opção "outros" for selecionada no select voluntario_profissao" -->
                                 <label for="voluntario_outrosprofissao" class="form-label">Especifique a formação</label>
-                                <input type="number" class="form-control" id="voluntario_outrosprofissao">
+                                <input type="text" class="form-control" id="voluntario_outrosprofissao">
                                 <div class="form-text">Se você escolheu a opção "Outros" em profissão então descreva a sua profissão. Caso contrário deixe esse campo em branco!</div>
                             </div>
                             <div class="row g-2">
@@ -615,17 +615,53 @@
         </div>
     </div>
 
+    <div class="modal fade" id="voluntario_profissao_modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Profissão</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row g-2">
+                    <div class="col-12">
+                        <label for="voluntario_profissao_input" class="form-label">Escolha uma profissão</label>
+                        <input type="text" class="form-control" id="voluntario_profissao_input">
+                        <div class="form-text">Pesquise a profissão que você exerce</div>
+                    </div>
+                    <div class="col-12">
+                        <select class="form-select" size="5" id="voluntario_profissao_select">
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+              <button type="button" class="btn btn-primary">Salvar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
     <script>
+        /*
+            ** API para coletar lista de trabalhos:
+            http://apps.diogomachado.com/api-profissoes/v1?callback=CALLBACK_JSONP&s=
+            créditos: http://apps.diogomachado.com/api-profissoes/
+        */
+
         $( document ).ready(function() {
             var counter = 0;
             var hideAll = () => $('[id^=step-]').each(function(index){
                 if(index > 0)
                     $(this).hide();
             });
+
             var changeCard = (step) => $('[id^=step-]').each(function(index){
                 if(step == index) {
                     $(this).fadeIn(500);
@@ -633,6 +669,10 @@
                     $(this).hide();
                 }
             });
+            var modalVolunteerWork = new bootstrap.Modal(document.getElementById('voluntario_profissao_modal'), {
+                keyboard: false
+            });
+
             var createButtonRadioContent = () => {
                 $([
                     'Arte e Cultura',
@@ -714,6 +754,10 @@
                 });
             }
 
+            $('#voluntario_profissao').click(function(){
+                modalVolunteerWork.show();
+            });
+
             createButtonRadioContent();
             hideAll();
 
@@ -724,6 +768,13 @@
             $('.btn-back').click(function(){
                 counter --;
                 changeCard(counter);
+            });
+
+          
+            $('#voluntario_profissao_input').keypress(function(e){
+
+                console.log(String.fromCharCode(e.which));
+
             });
 
         });
