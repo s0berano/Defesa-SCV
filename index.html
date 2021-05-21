@@ -17,6 +17,10 @@
         .card-header-text-color {
             color: white;
         }
+
+        .label-color-error {
+            color: red;
+        }
     </style>
 </head>
 <body>
@@ -210,6 +214,16 @@
                                 <div class="col-6">
                                     <label for="voluntario_email" class="form-label">Email</label>
                                     <input type="text" class="form-control" id="voluntario_email">
+                                    <div class="form-text label-color-error" id="voluntario_email-warning">Os formato do endereço de email não é correto!</div>
+                                </div>
+                            </div>
+                            <div class="row g-2">
+                                <div class="col-6">
+                                    <label for="voluntario_email_confirmar" class="form-label">Confirmar Email</label>
+                                    <input type="text" class="form-control" id="voluntario_email_confirmar">
+                                    <div class="form-text label-color-error" id="voluntario_email_confirmar-warning">Os formato do endereço de email não é correto!</div>
+                                    <div class="form-text label-color-error" id="voluntario_email_confirmar-error">Os endereços de email não são coincidem!</div>
+
                                 </div>
                             </div>
                             <div class="col-6">
@@ -487,7 +501,7 @@
                                     <option value="1">Outros</option>
                                 </select>
                             </div>
-                            <div class="col-12">
+                            <div class="col-12" id="div_outrosformacao">
                                 <!-- Campo dinamico, aparecer quando a opção "outros" for selecionada no select voluntario_formacao" -->
                                 <label for="voluntario_outrosformacao" class="form-label">Especifique a formação</label>
                                 <input type="text" class="form-control" id="voluntario_outrosformacao">
@@ -643,7 +657,7 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                <label for="voluntario_dispperiodo" class="form-label">Quais dias da semana tem disponibilidade?</label><br>
+                                <label for="voluntario_dispperiodo" class="form-label">Quais períodos tem disponibilidade?</label><br>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="checkbox" id="voluntario_dispperiodo1" value="Manhã">
                                     <label class="form-check-label" for="voluntario_dispperiodo1">Manhã</label>
@@ -683,7 +697,7 @@
                         <div class="form-text">Pesquise a profissão que você exerce</div>
                     </div>
                     <div class="col-12">
-                        <select class="form-select" size="5" id="voluntario_profissao_select">
+                        <select class="form-select" size="10" id="voluntario_profissao_select">
                         </select>
                     </div>
                 </div>
@@ -696,13 +710,58 @@
         </div>
       </div>
 
-      
-
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js" integrity="sha512-0XDfGxFliYJPFrideYOoxdgNIvrwGTLnmK20xZbCAvPfLGQMzHUsaqZK8ZoH+luXGRxTrS46+Aq400nCnAT0/w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+    <script type="text/javascript"  src="worklist.js"></script>
+    <script>
+        var modalVolunteerWork = new bootstrap.Modal(document.getElementById('voluntario_profissao_modal'), {
+            keyboard: false
+        });
+        
+        const cleanSpecialChar = str => {
+            const map = {
+              '-' : ' ',
+              '-' : '_',
+              'a' : 'á|à|ã|â|ä|À|Á|Ã|Â|Ä',
+              'e' : 'é|è|ê|ë|É|È|Ê|Ë',
+              'i' : 'í|ì|î|ï|Í|Ì|Î|Ï',
+              'o' : 'ó|ò|ô|õ|ö|Ó|Ò|Ô|Õ|Ö',
+              'u' : 'ú|ù|û|ü|Ú|Ù|Û|Ü',
+              'c' : 'ç|Ç',
+              'n' : 'ñ|Ñ'
+            };
+          
+            for (var pattern in map) {
+              str = str.replace(new RegExp(map[pattern], 'g'), pattern);
+            }
+          
+            return str;
+          }
+
+        const searchWork = work => {
+            const content = [];
+            $.each(WORKLIST, function(index, value){
+                let re = new RegExp(buffer, 'ig');
+                if(cleanSpecialChar(value[0].innerHTML).match(re))
+                    content.push(value[0]);
+            });
+
+            return content;
+        }
+
+        $('#voluntario_profissao_input').keyup(function(e){
+            buffer = cleanSpecialChar($(this).val());
+            console.log(buffer);
+            if(buffer.length > 2) {
+                $('#voluntario_profissao_select').html(searchWork(buffer));
+            } else if(buffer == '') {
+                $('#voluntario_profissao_select').html('');
+            }
+        });
+    </script>
     <script>
         /*
             ** Reservado para utilização de mask nos input's
@@ -712,7 +771,6 @@
             $('#voluntario_cpf').mask('000.000.000-00', {reverse: true});
             $('#voluntario_rg').mask('000000-0', {reverse: true});
             $('[id*=voluntario_telefone-]').mask('(00) 0 0000-0000');
-            $('#voluntario_email').mask('')
         });
 
         $('[id*=voluntario_tipotelefone-]').change(function(){
@@ -762,7 +820,39 @@
         $(btnHideContactField[1]).click(function(){
             $(phoneContactField[1]).hide();
         })
-            
+        
+        const inputEmail = $('#voluntario_email, #voluntario_email_confirmar');
+
+        inputEmail.focusout(function(){
+            const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+            const volEmail = $('#voluntario_email').val();
+            const volEmailConfirm = $('#voluntario_email_confirmar').val();
+
+            var checkMail = re.test(String($(this).val()).toLowerCase()) || false;
+
+            if(checkMail && volEmail != '' && volEmailConfirm != ''){
+                $('#%-warning'.replace('%', this.id)).hide();
+            } else {
+                $('#%-warning'.replace('%', this.id)).show();
+            }
+            if(volEmail == volEmailConfirm && volEmail != '' && volEmailConfirm != ''){
+                $('#%-error'.replace('%', this.id)).hide();
+            } else {
+                $('#%-error'.replace('%', this.id)).show();
+            }
+        });
+
+        const selectFormacao = $('#voluntario_formacao');
+
+        selectFormacao.change(function(){
+            var optionSelected = ($(this).val() == '1');
+
+            if(optionSelected)
+                $('#div_outrosformacao').show();
+            else
+                $('#div_outrosformacao').hide();
+        });
 
     </script>        
     <script>
@@ -773,7 +863,15 @@
         */
 
         $(document).ready(function() {
-            $('#phone-contact-field-1, #phone-contact-field-2').hide();
+            $(`
+                #phone-contact-field-1, 
+                #phone-contact-field-2, 
+                #voluntario_email-warning, 
+                #voluntario_email-warning,
+                #voluntario_email_confirmar-warning,
+                #voluntario_email_confirmar-error,
+                #div_outrosformacao
+            `).hide();
             var counter = 0;
             var hideAll = () => $('[id^=step-]').each(function(index){
                 if(index > 0)
@@ -786,10 +884,6 @@
                 } else {
                     $(this).hide();
                 }
-            });
-
-            var modalVolunteerWork = new bootstrap.Modal(document.getElementById('voluntario_profissao_modal'), {
-                keyboard: false
             });
 
             var createButtonRadioContent = () => {
@@ -884,17 +978,12 @@
                 counter ++;
                 changeCard(counter);
             });
+            
             $('.btn-back').click(function(){
                 counter --;
                 changeCard(counter);
             });
-
-          
-            $('#voluntario_profissao_input').keypress(function(e){
-
-                console.log(String.fromCharCode(e.which));
-
-            });
+    
 
         });
     </script>
