@@ -512,9 +512,9 @@
                                 <label for="voluntario_profissao" class="form-label">Profissão</label>
                                 <input type="text" class="form-control" id="voluntario_profissao">
                             </div>
-                            <div class="col-12">
+                            <div class="col-12" id="div_outrosprofissao">
                                 <!-- Campo dinamico, aparecer quando a opção "outros" for selecionada no select voluntario_profissao" -->
-                                <label for="voluntario_outrosprofissao" class="form-label">Especifique a formação</label>
+                                <label for="voluntario_outrosprofissao" class="form-label">Especifique a Profissão</label>
                                 <input type="text" class="form-control" id="voluntario_outrosprofissao">
                                 <div class="form-text">Se você escolheu a opção "Outros" em profissão então descreva a sua profissão. Caso contrário deixe esse campo em branco!</div>
                             </div>
@@ -692,19 +692,19 @@
             <div class="modal-body">
                 <div class="row g-2">
                     <div class="col-12">
-                        <label for="voluntario_profissao_input" class="form-label">Escolha uma profissão</label>
-                        <input type="text" class="form-control" id="voluntario_profissao_input">
+                        <label for="voluntario_profissao_modal_input" class="form-label">Escolha uma profissão</label>
+                        <input type="text" class="form-control" id="voluntario_profissao_modal_input">
                         <div class="form-text">Pesquise a profissão que você exerce</div>
                     </div>
                     <div class="col-12">
-                        <select class="form-select" size="10" id="voluntario_profissao_select">
+                        <select class="form-select" size="10" id="voluntario_profissao_modal_select">
                         </select>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-              <button type="button" class="btn btn-primary">Salvar</button>
+              <button type="button" class="btn btn-secondary" id="volutario_profissao_modal_cancel" data-bs-dismiss="modal">Fechar</button>
+              <button type="button" class="btn btn-primary" id="volutario_profissao_modal_save" data-bs-dismiss="modal">Salvar</button>
             </div>
           </div>
         </div>
@@ -717,7 +717,24 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
     <script type="text/javascript"  src="worklist.js"></script>
     <script>
-        var modalVolunteerWork = new bootstrap.Modal(document.getElementById('voluntario_profissao_modal'), {
+        const volunteerProfessionModal = $('#voluntario_profissao_modal')
+        const volunteerProfessionModalSelect = $('#voluntario_profissao_modal_select')
+        const volunteerProfessionModalInput = $('#voluntario_profissao_modal_input')
+        const volunteerProfessionModalCancel = $('#volutario_profissao_modal_cancel')
+        const volunteerProfessionModalSave = $('#volutario_profissao_modal_save')
+        const volunteerProfessionInput = $('#voluntario_profissao')
+        const volunteerProfessioanlOtherInput = $('#voluntario_outrosprofissao')
+
+        
+        const volunteerDivOtherProfission = $('#div_outrosprofissao')
+        const defaultOption = $('<option value="1">Outros</option>')
+        var buffer = ''
+
+        volunteerProfessionInput.keypress(function(e) {
+            e.preventDefault();
+        });
+
+        var modalVolunteerWork = new bootstrap.Modal(volunteerProfessionModal, {
             keyboard: false
         });
         
@@ -741,26 +758,50 @@
             return str;
           }
 
+        const resetModalFields = _ => {
+            volunteerProfessionModalInput.val('');
+            volunteerProfessioanlOtherInput.val('');
+            volunteerProfessionModalSelect.html('');
+        }
+        
         const searchWork = work => {
             const content = [];
             $.each(WORKLIST, function(index, value){
-                let re = new RegExp(buffer, 'ig');
+                let re = new RegExp(buffer, 'i');
                 if(cleanSpecialChar(value[0].innerHTML).match(re))
-                    content.push(value[0]);
+                    content.push(value[0], defaultOption);
             });
 
             return content;
         }
 
-        $('#voluntario_profissao_input').keyup(function(e){
+        volunteerProfessionModalInput.keyup(function(e){
             buffer = cleanSpecialChar($(this).val());
             console.log(buffer);
             if(buffer.length > 2) {
-                $('#voluntario_profissao_select').html(searchWork(buffer));
+                volunteerProfessionModalSelect.html(searchWork(buffer));
             } else if(buffer == '') {
-                $('#voluntario_profissao_select').html('');
+                volunteerProfessionModalSelect.html('');
             }
         });
+
+        volunteerProfessionModalSave.click(function(){
+            let selectedOption = $('#voluntario_profissao_modal_select :selected')
+
+            volunteerProfessionInput.val(selectedOption.text());
+
+            resetModalFields()
+
+            if(volunteerProfessionInput.val() == 'Outros')
+                volunteerDivOtherProfission.show();
+            else 
+                volunteerDivOtherProfission.hide();
+        });
+
+        volunteerProfessionModalCancel.click(function(){
+            resetModalFields()
+        });
+
     </script>
     <script>
         /*
@@ -870,7 +911,8 @@
                 #voluntario_email-warning,
                 #voluntario_email_confirmar-warning,
                 #voluntario_email_confirmar-error,
-                #div_outrosformacao
+                #div_outrosformacao,
+                #div_outrosprofissao
             `).hide();
             var counter = 0;
             var hideAll = () => $('[id^=step-]').each(function(index){
