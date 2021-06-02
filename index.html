@@ -11,133 +11,169 @@
         }
 
         .card-header-bg-color {
-            background-color: #007BFF !important;
+            background-color: #f88430 !important;
+        }
+
+        .h1-header-color {
+            color: white !important;
         }
 
         .card-header-text-color {
             color: white;
         }
 
+        .form-text-blue-color {
+            color: rgba(235, 235, 235, 0.884);
+        }
+
+        .option-selected-defeault-text-color {
+            color: rgba(230, 230, 230, 0.8) !important;
+        }
+
         .label-color-error {
             color: red;
+        }
+
+        .btn-defesacivil {
+            color: #fff;
+            background-color: #0d6efd;
+            border-color: #0d6efd;
         }
     </style>
 </head>
 <body>
     
     <div class="container">
-        <!-- Dados Pessoais -->
+        <!-- Informação do Curso -->
         <div id="step-1" class="row" >
             <div class="col">
                 <div class="card">
+                    <div class="card-body card-header-bg-color">
+                        <div class="row g-2">
+                            
+                            <div class="row g-2">
+                                <div class="text-center">
+                                    <img src="logo.png" width="18%" class="rounded mx-auto d-block">
+                                </div>
+                            </div>
+                            <div class="col-12 g-5">
+                                <h1 align="center" class="h1-header-color"><b>Curso de Voluntários</b></h1>
+                            </div>
+                            <div class="col-12">
+                                <h2 align="center" class="h1-header-color">Selecione o polo para realização do curso</h2>
+                            </div>
+                            <div class="row justify-content-center">
+                                <div class="col-10">
+                                    <label for="voluntario_cidadecurso" class="form-label">&nbsp;</label>
+                                    <select id="voluntario_cidadecurso-1" class="form-select">
+                                        <option value="Água Boa">Água Boa</option>
+                                        <option value="Alta Floresta">Alta Floresta</option>
+                                        <option value="Barra do Garças">Barra do Garças</option>
+                                        <option value="Campo Novo dos Parecis">Campo Novo dos Parecis</option>
+                                        <option value="Colniza">Colniza</option>
+                                        <option value="Cuiabá" selected>Cuiabá</option>
+                                        <option value="Cáceres">Cáceres</option>
+                                        <option value="Diamantino">Diamantino</option>
+                                        <option value="Guarantã do Norte">Guarantã do Norte</option>
+                                        <option value="Juína">Juína</option>
+                                        <option value="Juara">Juara</option>
+                                        <option value="Lucas do Rio Verde">Lucas do Rio Verde</option>
+                                        <option value="Poconé">Poconé</option>
+                                        <option value="Pontes e Lacerda">Pontes e Lacerda</option>
+                                        <option value="Primavera do Leste">Primavera do Leste</option>
+                                        <option value="Rondonópolis">Rondonópolis</option>
+                                        <option value="Tangará da Serra">Tangará da Serra</option>
+                                        <option value="Varzea Grande">Varzea Grande</option>
+                                        <option value="Vila Rica">Vila Rica</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row g-4 justify-content-center">
+                                <div class="col-3">
+                                    <div class="form-check form-switch">
+                                        <label class="form-check-label card-header-text-color" for="voluntario_maioridade">Possuí maioridade penal é maior de 18 anos?</label>
+                                        <input class="form-check-input" type="checkbox" value="off" id="voluntario_maioridade">
+                                    </div>
+                                     <div class="form-text form-text-blue-color">Está de acordo com a <a href="http://www.planalto.gov.br/ccivil_03/leis/l8069.htm"><b>Lei nº 8.069/90</b></a></div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="form-check form-switch">
+                                        <label class="form-check-label card-header-text-color" for="voluntario_residemt">Reside atualmente no estado de Mato Grosso?</label>
+                                        <input class="form-check-input" type="checkbox" id="voluntario_residemt">
+                                    </div>
+                                    <div class="form-text form-text-blue-color">Será solicitado a comprovação de residência</div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="form-check form-switch">
+                                        <label class="form-check-label card-header-text-color" for="voluntario_aceitatermo">Está de acordo com o termo de compromisso?</label>
+                                        <input class="form-check-input" type="checkbox" id="voluntario_aceitatermo">
+                                    </div>
+                                    <div class="form-text form-text-blue-color">Está de acordo com a  <a href="http://www.planalto.gov.br/ccivil_03/_ato2011-2014/2012/lei/l12608.htm"><b>Lei nº 9.608/12</b></a></div>
+                                </div>
+                            </div>
+
+                            <div class="row g-4">
+                                <div class="col" align="center">
+                                    <button type="button" id="btn_step-1" class="btn btn-primary btn-next" disabled>Prosseguir</button>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Dados Pessoais -->
+        <div id="step-2" class="row" >
+            <div class="col">
+                <div class="card">
                     <div class="card-header card-header-bg-color">
-                        <h5 class="card-header-text-color">Dados Pessoais</h5>
+                        <h5 class="card-header-text-color">&nbsp;</h5>
                     </div>
                     <div class="card-body">
                         <div class="row g-2">
-                            <div class="col-12">
-                                <label for="voluntario_nome" class="form-label">Nome</label>
-                                <input type="text" class="form-control" id="voluntario_nome">
-                            </div>
-                            <div class="col-6">
-                                <label for="voluntario_cpf" class="form-label">CPF</label>
-                                <input type="text" class="form-control" id="voluntario_cpf">
-                            </div>
-                            <div class="col-6">
-                                <label for="voluntario_rg" class="form-label">RG</label>
-                                <input type="text" class="form-control" id="voluntario_rg">
-                            </div>
-                            <div class="col-6">
-                                <label for="voluntario_nacionalidade" class="form-label">Nacionalidade</label>
-                                <input type="text" class="form-control" id="voluntario_nacionalidade">
-                            </div>
-                            <div class="col-6">
-                                <label for="voluntario_naturalidade" class="form-label">Naturalidade</label>
-                                <input type="text" class="form-control" id="voluntario_naturalidade">
-                            </div>
-                            <div class="col-3">
-                                <label for="voluntario_dtnascimento" class="form-label">Data de Nascimento</label>
-                                <input type="date" class="form-control" id="voluntario_dtnascimento">
-                            </div>
-                            <div class="col-3">
-                                <label for="voluntario_sexo" class="form-label">Sexo</label>
-                                <select id="voluntario_sexo" class="form-select">
-                                    <option selected>Masculino</option>
-                                    <option>Feminino</option>
-                                    <option>Outro</option>
-                                </select>
-                            </div>
-                            <div class="col-6">
-                                <label for="voluntario_estcivil" class="form-label">Estado Civil</label>
-                                <select id="voluntario_estcivil" class="form-select">
-                                    <option selected>Solteiro(a)</option>
-                                    <option>Casado(a)</option>
-                                    <option>Viúvo(a)</option>
-                                    <option>Separado(a)</option>
-                                </select>
+                            <div class="row g-2">
+                                <div class="col-12">
+                                    <label for="voluntario_nome" class="form-label">Nome</label>
+                                    <input type="text" class="form-control" id="voluntario_nome">
+                                </div>
                             </div>
                             <div class="row g-2">
-                                <div class="col-4">
-                                    <label class="form-label">É Doador de Sangue?</label>
-                                    <div class="col">
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="voluntario_doasangue" id="voluntario_doasangue1" value="Sim">
-                                            <label class="form-check-label" for="voluntario_doasangue1">Sim</label>
-                                          </div>
-                                          <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="voluntario_doasangue" id="voluntario_doasangue2" value="Não" checked>
-                                            <label class="form-check-label" for="voluntario_doasangue2">Não</label>
-                                        </div>
-                                    </div> 
+                                <div class="col-5">
+                                    <label for="voluntario_cpf" class="form-label">CPF</label>
+                                    <input type="text" class="form-control" id="voluntario_cpf">
+                                    <div id="feedback_voluntario_cpf" class="invalid-feedback"></div>
+                                </div>
+                                <div class="col-5">
+                                    <label for="voluntario_rg" class="form-label">RG</label>
+                                    <input type="text" class="form-control" id="voluntario_rg">
+                                    <div id="feedback_voluntario_rg" class="invalid-feedback"></div>
                                 </div>
                                 <div class="col-2">
-                                    <label for="voluntario_sangtipo" class="form-label">Tipo Sanguineo</label>
-                                    <select id="voluntario_sangtipo" class="form-select">
-                                        <option selected>O+</option>
-                                        <option>A+</option>
-                                        <option>B+</option>
-                                        <option>AB+</option>
-                                        <option>O-</option>
-                                        <option>A-</option>
-                                        <option>B-</option>
-                                        <option>AB-</option>
+                                    <label for="voluntario_rgemissor" class="form-label">Orgão Emissor</label>
+                                    <select id="voluntario_rgemissor" class="form-select">
+                                        <option selected>SSP</option>
+                                        <option>Casado(a)</option>
+                                        <option>Viúvo(a)</option>
+                                        <option>Separado(a)</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="row g-2">
-                                <div class="col-4">
-                                    <label class="form-label">Possui Carteira Nacional de Habilitação?</label>
-                                    <div class="col">
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="voluntario_temcnh" id="voluntario_temcnh1" value="Sim">
-                                            <label class="form-check-label" for="voluntario_temcnh1">Sim</label>
-                                          </div>
-                                          <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="voluntario_temcnh" id="voluntario_temcnh2" value="Não" checked>
-                                            <label class="form-check-label" for="voluntario_temcnh2">Não</label>
-                                        </div>
-                                    </div>
+                                <div class="col-3">
+                                    <label for="voluntario_dtnascimento" class="form-label">Data de Nascimento</label>
+                                    <input type="date" class="form-control" id="voluntario_dtnascimento">
                                 </div>
-                                <div class="col-2">
-                                    <label for="voluntario_cnhtipo" class="form-label input-volunteer-cnh">Categoria</label>
-                                    <select id="voluntario_cnhtipo" class="form-select input-volunteer-cnh">
-                                        <option selected>A</option>
-                                        <option>B</option>
-                                        <option>C</option>
-                                        <option>D</option>
-                                        <option>E</option>
-                                        <option>AB</option>
-                                        <option>AC</option>
-                                        <option>AD</option>
-                                        <option>AE</option>
+                                <div class="col-3">
+                                    <label for="voluntario_sexo" class="form-label">Sexo</label>
+                                    <select id="voluntario_sexo" class="form-select">
+                                        <option selected>Masculino</option>
+                                        <option>Feminino</option>
                                     </select>
-                                </div>
-                                <div class="col-4">
-                                    <label for="voluntario_numerocnh" class="form-label input-volunteer-cnh">Número</label>
-                                    <input type="number" class="form-control input-volunteer-cnh" id="voluntario_numerocnh">
                                 </div>
                             </div>
                             <div class="col" align="right">
+                                <button type="button" class="btn btn-secondary btn-back">Retornar</button>
                                 <button type="button" class="btn btn-success btn-next">Próximo</button>
                             </div>
                         </div>
@@ -146,21 +182,22 @@
             </div>
         </div>
         <!-- Contato -->
-        <div id="step-2" class="row" >
+        <div id="step-3" class="row" >
             <div class="col">
                 <div class="card">
                     <div class="card-header card-header-bg-color">
-                        <h5 class="card-header-text-color">Contato</h5>
+                        <h5 class="card-header-text-color">&nbsp;</h5>
                     </div>
                     <div class="card-body">
                         <div class="row g-2">
                             <div id="row-volunteer-phones" class="row">
                                 <div class="row g-2">
-                                    <div class="col-4">
+                                    <div class="col-5">
                                         <label for="voluntario_telefone" class="form-label">Telefones</label>
                                         <input type="text" class="form-control" id="voluntario_telefone-1">
+                                        <div id="feedback_voluntario_telefone-1" class="invalid-feedback"></div>
                                     </div>
-                                    <div class="col-4">
+                                    <div class="col-5">
                                         <label for="voluntario_tipotelefone" class="form-label">&nbsp;</label>
                                         <select id="voluntario_tipotelefone-1" class="form-select">
                                             <option value="true" selected>Celular Pessoal</option>
@@ -174,11 +211,12 @@
                                     </div>
                                 </div>
                                 <div id="phone-contact-field-1" class="row g-2">
-                                    <div class="col-4">
+                                    <div class="col-5">
                                         <label for="voluntario_telefone" class="form-label">Telefones</label>
                                         <input type="text" class="form-control" id="voluntario_telefone-2">
+                                        <div id="feedback_voluntario_telefone-2" class="invalid-feedback"></div>
                                     </div>
-                                    <div class="col-4">
+                                    <div class="col-5">
                                         <label for="voluntario_tipotelefone" class="form-label">&nbsp;</label>
                                         <select id="voluntario_tipotelefone-2" class="form-select">
                                             <option value="true" selected>Celular Pessoal</option>
@@ -192,11 +230,12 @@
                                     </div>
                                 </div>
                                 <div id="phone-contact-field-2" class="row g-2">
-                                    <div class="col-4">
+                                    <div class="col-5">
                                         <label for="voluntario_telefone" class="form-label">Telefones</label>
                                         <input type="text" class="form-control" id="voluntario_telefone-3">
+                                        <div id="feedback_voluntario_telefone-3" class="invalid-feedback"></div>
                                     </div>
-                                    <div class="col-4">
+                                    <div class="col-5">
                                         <label for="voluntario_tipotelefone" class="form-label">&nbsp;</label>
                                         <select id="voluntario_tipotelefone-3" class="form-select">
                                             <option value="true" selected>Celular Pessoal</option>
@@ -214,40 +253,45 @@
                                 <div class="col-6">
                                     <label for="voluntario_email" class="form-label">Email</label>
                                     <input type="text" class="form-control" id="voluntario_email">
-                                    <div class="form-text label-color-error" id="voluntario_email-warning">Os formato do endereço de email não é correto!</div>
+                                    <div class="invalid-feedback" id="voluntario_email_feedback">Os formato do endereço de email não é correto!</div>
                                 </div>
                             </div>
                             <div class="row g-2">
                                 <div class="col-6">
                                     <label for="voluntario_email_confirmar" class="form-label">Confirmar Email</label>
                                     <input type="text" class="form-control" id="voluntario_email_confirmar">
-                                    <div class="form-text label-color-error" id="voluntario_email_confirmar-warning">Os formato do endereço de email não é correto!</div>
-                                    <div class="form-text label-color-error" id="voluntario_email_confirmar-error">Os endereços de email não são coincidem!</div>
-
+                                    <div class="invalid-feedback" id="voluntario_email_confirmar_feedback">Os formato do endereço de email não é correto!</div>
+                                    <div class="invalid-feedback" id="voluntario_email_coincide" hidden>Os endereços de email não são coincidem!</div>
                                 </div>
                             </div>
-                            <div class="col-6">
-                                <label for="voluntario_cep" class="form-label">CEP</label>
-                                <input type="text" class="form-control" id="voluntario_cep">
+                            <div class="row g-2">
+                                <div class="col-6">
+                                    <label for="voluntario_cep" class="form-label">CEP</label>
+                                    <input type="text" class="form-control" id="voluntario_cep">
+                                </div>
                             </div>
-                            <div class="col-6">
-                                <label for="voluntario_cidade" class="form-label">Cidade</label>
-                                <input type="text" class="form-control" id="voluntario_cidade">
+                            <div class="row g-2">
+                                <div class="col-3">
+                                    <label for="voluntario_cidade" class="form-label">Cidade</label>
+                                    <input type="text" class="form-control" id="voluntario_cidade">
+                                </div>
+                                <div class="col-6">
+                                    <label for="voluntario_endereço" class="form-label">Endereço</label>
+                                    <input type="text" class="form-control" id="voluntario_endereço">
+                                </div>
+                                <div class="col-3">
+                                    <label for="voluntario_endnumero" class="form-label">Número</label>
+                                    <input type="number" class="form-control" id="voluntario_endnumero">
+                                </div>
                             </div>
-                            <div class="col-12">
-                                <label for="voluntario_endereço" class="form-label">Endereço</label>
-                                <input type="text" class="form-control" id="voluntario_endereço">
-                            </div>
-                            <div class="col-3">
-                                <label for="voluntario_endnumero" class="form-label">Número</label>
-                                <input type="number" class="form-control" id="voluntario_endnumero">
-                            </div>
-                            <div class="col-5">
-                                <label for="voluntario_endbairro" class="form-label">Bairro</label>
-                                <input type="text" class="form-control" id="voluntario_endbairro">
-                            </div><div class="col-4">
-                                <label for="voluntario_endcomplemento" class="form-label">Complemento</label>
-                                <input type="text" class="form-control" id="voluntario_endcomplemento">
+                            <div class="row g-2">
+                                <div class="col-5">
+                                    <label for="voluntario_endbairro" class="form-label">Bairro</label>
+                                    <input type="text" class="form-control" id="voluntario_endbairro">
+                                </div><div class="col-4">
+                                    <label for="voluntario_endcomplemento" class="form-label">Complemento</label>
+                                    <input type="text" class="form-control" id="voluntario_endcomplemento">
+                                </div>
                             </div>
                             <div class="col" align="right">
                                 <button type="button" class="btn btn-secondary btn-back">Retornar</button>
@@ -259,11 +303,11 @@
             </div>
         </div>
         <!-- Atuação -->
-        <div id="step-3" class="row" >
+        <div id="step-4" class="row" >
             <div class="col">
                 <div class="card">
                     <div class="card-header card-header-bg-color">
-                        <h5 class="card-header-text-color">Atuação</h5>
+                        <h5 class="card-header-text-color">&nbsp;</h5>
                     </div>
                     <div class="card-body">
                         <div class="row g-3">
@@ -533,21 +577,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-5">
-                                <label for="voluntario_sitprofissional" class="form-label">Situação Profissional</label>
-                                <select id="voluntario_sitprofissional" class="form-select">
-                                    <option selected disabled>Selecione a situação profissional</option>
-                                    <option value="2">Autônomo - Profissional Liberal</option>
-                                    <option value="3">Desempregado</option>
-                                    <option value="4">Dona de Casa</option>
-                                    <option value="5">Empresário</option>
-                                    <option value="6">Estudante</option>
-                                    <option value="7">Funcionário de Empresa Privada</option>
-                                    <option value="8">Funcionário de ONG</option>
-                                    <option value="9">Funcionário Público</option>
-                                    <option value="1">Outros</option>
-                                </select>
-                            </div>
                             <div class="row g-2">
                                 <div class="col-12">
                                     <label class="form-label">Já fez algum trabalho voluntário?</label>
@@ -563,21 +592,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row g-2">
-                                <div class="col-12">
-                                    <label class="form-label">É usuário de rádio cidadão?</label>
-                                    <div class="col">
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="voluntario_radiocid" id="voluntario_radiocid1" value="Sim">
-                                            <label class="form-check-label" for="voluntario_radiocid1">Sim</label>
-                                          </div>
-                                          <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="voluntario_radiocid" id="voluntario_radiocid2" value="Não">
-                                            <label class="form-check-label" for="voluntario_radiocid2">Não</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                             <div class="col" align="right">
                                 <button type="button" class="btn btn-secondary btn-back">Retornar</button>
                                 <button type="button" class="btn btn-success btn-next">Próximo</button>
@@ -588,35 +602,29 @@
             </div>
         </div>
         <!-- Dados Complementares -->
-        <div id="step-4" class="row" >
+        <div id="step-5" class="row" >
             <div class="col">
                 <div class="card">
                     <div class="card-header card-header-bg-color">
-                        <h5 class="card-header-text-color">Dados Complementares</h5>
+                        <h5 class="card-header-text-color">&nbsp;</h5>
                     </div>
                     <div class="card-body">
                         <div class="row g-3">
-                            <div class="col-12">
-                                <label for="voluntario_pqvoluntario" class="form-label">Por que quer ser voluntário?</label>
-                                <textarea class="form-control" id="voluntario_pqvoluntario" rows="3"></textarea>
+                            <div class="row g-3">
+                                <div id="voluntario_areainteresse" class="col-12">
+                                    <label for="voluntario_areainteresse" class="form-label">Quais áreas despertam seu interesse?</label><br>
+                                </div>
                             </div>
-                            <div id="voluntario_areainteresse" class="col-12">
-                                <label for="voluntario_areainteresse" class="form-label">Quais áreas despertam seu interesse?</label><br>
+                            <div class="row g-3">
+                                <div id="voluntario_publcoafinidade" class="col-12">
+                                    <label for="voluntario_publcoafinidade" class="form-label">Público que tem afinidade?</label><br>
+                                    
+                                </div>
                             </div>
-                            <div id="voluntario_publcoafinidade" class="col-12">
-                                <label for="voluntario_publcoafinidade" class="form-label">Público que tem afinidade?</label><br>
-                                
-                            </div>
-                            <div id="voluntario_atvinteresse" class="col-12">
-                                <label for="voluntario_atvfavorita" class="form-label">Qual ou quais atividades você gostaria de realizar como voluntário?</label><br>
-                            </div>
-                            <div class="col-12">
-                                <label for="voluntario_habilvoluntario" class="form-label">Faça uma breve descrição sobre suas habilidades e como você pode ajudar a Defesa Civil Estadual</label>
-                                <textarea class="form-control" id="voluntario_habilvoluntario" rows="3"></textarea>
-                            </div>
-                            <div class="col-12">
-                                <label for="voluntario_palavrachave" class="form-label">Faça uma lista de palavras-chave que serão utilizadas pela Defesa Civil Estadual para encontrar você</label>
-                                <textarea class="form-control" id="voluntario_palavrachave" rows="3"></textarea>
+                            <div class="row g-3">
+                                <div id="voluntario_atvinteresse" class="col-12">
+                                    <label for="voluntario_atvfavorita" class="form-label">Qual ou quais atividades você gostaria de realizar como voluntário?</label><br>
+                                </div>
                             </div>
                             <div class="row g-2">
                                 <label for="voluntario_tempodisp" class="form-label">Qual é a sua disponibilidade de horas mensais para a atividade voluntária?</label>
@@ -625,35 +633,37 @@
                                     <div class="form-text">Informe um valor entre 1 e 24</div>
                                 </div>
                             </div>
-                            <div class="col-12">
-                                <label for="voluntario_dispsemana" class="form-label">Quais dias da semana tem disponibilidade?</label><br>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="voluntario_dispsemana1" value="Segunda">
-                                    <label class="form-check-label" for="voluntario_dispsemana1">Segunda-Feira</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="voluntario_dispsemana2" value="Terça">
-                                    <label class="form-check-label" for="voluntario_dispsemana2">Terça-Feira</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="voluntario_dispsemana3" value="Quarta">
-                                    <label class="form-check-label" for="voluntario_dispsemana3">Quarta-Feira</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="voluntario_dispsemana4" value="Quinta">
-                                    <label class="form-check-label" for="voluntario_dispsemana4">Quinta-Feira</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="voluntario_dispsemana5" value="Sexta">
-                                    <label class="form-check-label" for="voluntario_dispsemana5">Sexta-Feira</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="voluntario_dispsemana6" value="Sábado">
-                                    <label class="form-check-label" for="voluntario_dispsemana6">Sábado</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="voluntario_dispsemana7" value="Domingo">
-                                    <label class="form-check-label" for="voluntario_dispsemana7">Domingo</label>
+                            <div class="row g-2">
+                                <div class="col-12">
+                                    <label for="voluntario_dispsemana" class="form-label">Quais dias da semana preferêncialmente pode realizar trabalho voluntário?</label><br>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="voluntario_dispsemana1" value="Segunda">
+                                        <label class="form-check-label" for="voluntario_dispsemana1">Segunda-Feira</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="voluntario_dispsemana2" value="Terça">
+                                        <label class="form-check-label" for="voluntario_dispsemana2">Terça-Feira</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="voluntario_dispsemana3" value="Quarta">
+                                        <label class="form-check-label" for="voluntario_dispsemana3">Quarta-Feira</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="voluntario_dispsemana4" value="Quinta">
+                                        <label class="form-check-label" for="voluntario_dispsemana4">Quinta-Feira</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="voluntario_dispsemana5" value="Sexta">
+                                        <label class="form-check-label" for="voluntario_dispsemana5">Sexta-Feira</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="voluntario_dispsemana6" value="Sábado">
+                                        <label class="form-check-label" for="voluntario_dispsemana6">Sábado</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="voluntario_dispsemana7" value="Domingo">
+                                        <label class="form-check-label" for="voluntario_dispsemana7">Domingo</label>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-12">
@@ -716,6 +726,21 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
     <script type="text/javascript"  src="worklist.js"></script>
+    <!-- step-1 -->
+    <script>
+        var checkCount = 0;
+        $('#voluntario_maioridade, #voluntario_residemt, #voluntario_aceitatermo').click(function(){
+            checkCount = $(this).is(':checked') ? checkCount+=1 : checkCount-=1;
+
+            if(checkCount >= 3)
+                $('#btn_step-1').removeAttr('Disabled');
+            else 
+                $('#btn_step-1').attr('Disabled', 'Disabled');
+            
+            
+        });
+
+    </script>
     <script>
         const volunteerProfessionModal = $('#voluntario_profissao_modal')
         const volunteerProfessionModalSelect = $('#voluntario_profissao_modal_select')
@@ -807,26 +832,62 @@
         /*
             ** Reservado para utilização de mask nos input's
         */
+      
+        const checkValidInput = (object, inputSize, feedbackObject, feedbackText) => {
+            if(object.val().length > 0) {
+                if(object.val().length < inputSize) {
+                    object.removeClass('is-valid').addClass('is-invalid');
+                    $('#' + feedbackObject).text(feedbackText);
+                } else {
+                    object.removeClass('is-invalid').addClass('is-valid');
+                }
+            } else {
+                object.removeClass('is-invalid').removeClass('is-valid');
+            }
+        }
 
-        $(document).ready(function() {
-            $('#voluntario_cpf').mask('000.000.000-00', {reverse: true});
-            $('#voluntario_rg').mask('000000-0', {reverse: true});
-            $('[id*=voluntario_telefone-]').mask('(00) 0 0000-0000');
+        $('#voluntario_cpf').mask('000.000.000-00', {reverse: true}).focusout(function(){
+            checkValidInput($(this), 14, 'feedback_voluntario_cpf', 'O CPF deve conter onze números');
+        });
+
+        $('#voluntario_rg').mask('000000-0', {reverse: true}).focusout(function(){
+            checkValidInput($(this), 8,  'feedback_voluntario_rg', 'O RG deve conter oito números');
+        });
+
+        $('#voluntario_numerocnh').mask('00000000', {reverse: true}).focusout(function(){
+            checkValidInput($(this), 8, 'feedback_voluntario_numerocnh', 'A CNH deve conter oito números');
+        });
+
+
+        //feedback_voluntario_telefone-
+
+        $('[id*=voluntario_telefone-]').mask('(00) 0 0000-0000').focusout(function(){
+            var inputId = this.id.slice(-1);
+            checkValidInput($(this), 16, 'feedback_voluntario_telefone-' + inputId, 'O número de celular deve conter onze números');
+        });
+
+        $('[id*=btn-hide-contact-]').click(function(){
+            var buttonId = parseInt(this.id.slice(-1));
+            $('#voluntario_telefone-' + String(buttonId + 1)).removeClass('is-invalid').removeClass('is-valid').val('');
         });
 
         $('[id*=voluntario_tipotelefone-]').change(function(){
-                var selectId = $(this).prev('select').prevObject[0].id.slice(-1);
-                var optionSelected = ($(this).val() == 'true');
+            var selectId = $(this).prev('select').prevObject[0].id.slice(-1);
+            var optionSelected = ($(this).val() == 'true');
 
-                if(optionSelected) {
-                    console.log(selectId)
-                    $('#voluntario_telefone-' + selectId).val('');
-                    $('#voluntario_telefone-' + selectId).mask('(00) 0 0000-0000');
-                } else {
-                    $('#voluntario_telefone-' + selectId).val('');
-                    $('#voluntario_telefone-' + selectId).mask('(00) 0000-0000');          
+            if(optionSelected) {
+                console.log(selectId)
+                $('#voluntario_telefone-' + selectId).mask('(00) 0 0000-0000').focusout(function(){
+                    checkValidInput($(this), 16, 'feedback_voluntario_telefone-' + selectId, 'O número de celular deve conter onze números')
+                }).val('');
+            } else {
+                $('#voluntario_telefone-' + selectId).mask('(00) 0000-0000').focusout(function(){
+                    checkValidInput($(this), 14, 'feedback_voluntario_telefone-' + selectId, 'O número de telefone deve conter dez números')
+                }).val('');
             }
         });
+
+        $('#voluntario_tempodisp').mask('00');
     </script>
     <script>
          /*
@@ -863,26 +924,37 @@
         })
         
         const inputEmail = $('#voluntario_email, #voluntario_email_confirmar');
+        const volunteerFeedback = $('#voluntario_email_feedback, #voluntario_email_confirmar_feedback')
+        const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        var checkMail = (email) => { return re.test(email.val()) || false; }
 
-        inputEmail.focusout(function(){
-            const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-            const volEmail = $('#voluntario_email').val();
-            const volEmailConfirm = $('#voluntario_email_confirmar').val();
+        inputEmail.change(function(){
 
-            var checkMail = re.test(String($(this).val()).toLowerCase()) || false;
+            if($(this).val().length > 0) {
+                if(checkMail($(this))){
+                    $(this).removeClass('is-invalid').addClass('is-valid');
 
-            if(checkMail && volEmail != '' && volEmailConfirm != ''){
-                $('#%-warning'.replace('%', this.id)).hide();
+                } else {
+                    $(this).removeClass('is-valid').addClass('is-invalid');
+                }
+
+                if(checkMail($(inputEmail[0])) && $(inputEmail[0]).val().length > 0 && checkMail($(inputEmail[1])) && $(inputEmail[0]).val().length > 0 ) {
+                    if($(inputEmail[0]).val() != $(inputEmail[1]).val()) {
+                        volunteerFeedback.attr('hidden', true);
+                        inputEmail.removeClass('is-valid').addClass('is-invalid');
+                        $('#voluntario_email_coincide').removeAttr('hidden');
+                    } else {
+                        volunteerFeedback.removeAttr('hidden');
+                        inputEmail.removeClass('is-invalid').addClass('is-valid');
+                        $('#voluntario_email_coincide').attr('hidden', true);
+                    }
+                } 
             } else {
-                $('#%-warning'.replace('%', this.id)).show();
-            }
-            if(volEmail == volEmailConfirm && volEmail != '' && volEmailConfirm != ''){
-                $('#%-error'.replace('%', this.id)).hide();
-            } else {
-                $('#%-error'.replace('%', this.id)).show();
+                $(this).removeClass('is-valid').removeClass('is-invalid');
             }
         });
+
 
         const selectFormacao = $('#voluntario_formacao');
 

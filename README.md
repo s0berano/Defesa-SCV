@@ -3,3 +3,7 @@
 ---
 
 ### A ideia central é utilizar a plataforma do 'google app scripts' junto com o 'google sheets' para gerar o formulário de cadastro com javascript via jquery onde os dados serão armazenados na planilha do google.
+
+### API para coletar dados através do CEP
+
+    https://viacep.com.br/ws/78070340/json/
