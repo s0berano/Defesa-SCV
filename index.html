@@ -35,9 +35,32 @@
         }
 
         .btn-defesacivil {
-            color: #fff;
-            background-color: #0d6efd;
-            border-color: #0d6efd;
+            color: white !important;
+            background-color: #393680 !important;
+            border-color: #393680 !important;
+        }
+
+        .btn-defesacivil-final {
+            color: white !important;
+            background-color: #f88430 !important;
+            border-color: #f88430 !important;
+        }
+
+        #voluntario_rgemissor {
+            text-transform: uppercase;
+        }
+
+        .modal-defesacivil {
+            background-color: #f88430 !important;
+        }
+
+        .modal-header-defesacivil {
+            border-bottom: 1px solid #f88430 !important;
+        }
+
+        .modal-footer-defesacivil {
+            border-top: 1px solid #f88430 !important;
+            justify-content: center;
         }
     </style>
 </head>
@@ -113,8 +136,8 @@
                             </div>
 
                             <div class="row g-4">
-                                <div class="col" align="center">
-                                    <button type="button" id="btn_step-1" class="btn btn-primary btn-next" disabled>Prosseguir</button>
+                                <div class="col-12" align="center">
+                                    <button type="button" id="btn_step-1" class="btn btn-lg btn-defesacivil btn-next" disabled>Prosseguir</button>
                                 </div>
                             </div>
                             
@@ -128,34 +151,68 @@
             <div class="col">
                 <div class="card">
                     <div class="card-header card-header-bg-color">
-                        <h5 class="card-header-text-color">&nbsp;</h5>
+                        <div class="row">
+                            <div class="col text-end">
+                                <button type="button" class="btn btn-secondary btn-back">Retornar</button>
+                                <button type="button" class="btn btn-defesacivil btn-next">Próximo</button>
+                            </div>
+                        </div>
                     </div>
                     <div class="card-body">
                         <div class="row g-2">
                             <div class="row g-2">
                                 <div class="col-12">
-                                    <label for="voluntario_nome" class="form-label">Nome</label>
-                                    <input type="text" class="form-control" id="voluntario_nome">
+                                    <label for="voluntario_nome" class="form-label" pattern="[A-Za-z]">Nome</label>
+                                    <input type="text" class="form-control alpha-only" id="voluntario_nome">
                                 </div>
                             </div>
                             <div class="row g-2">
-                                <div class="col-5">
+                                <div class="col-6">
                                     <label for="voluntario_cpf" class="form-label">CPF</label>
                                     <input type="text" class="form-control" id="voluntario_cpf">
                                     <div id="feedback_voluntario_cpf" class="invalid-feedback"></div>
                                 </div>
-                                <div class="col-5">
+                            </div>
+                            <div class="row g-2">
+                                <div class="col-6">
                                     <label for="voluntario_rg" class="form-label">RG</label>
                                     <input type="text" class="form-control" id="voluntario_rg">
                                     <div id="feedback_voluntario_rg" class="invalid-feedback"></div>
                                 </div>
                                 <div class="col-2">
                                     <label for="voluntario_rgemissor" class="form-label">Orgão Emissor</label>
-                                    <select id="voluntario_rgemissor" class="form-select">
-                                        <option selected>SSP</option>
-                                        <option>Casado(a)</option>
-                                        <option>Viúvo(a)</option>
-                                        <option>Separado(a)</option>
+                                    <input type="text" class="form-control alpha-only" id="voluntario_rgemissor">
+                                </div>
+                                <div class="col-2">
+                                    <label for="voluntario_estadoemissor" class="form-label">Estado Emissor</label>
+                                    <select id="voluntario_estadoemissor" class="form-select">
+                                        <option>AC</option>
+                                        <option>AL</option>
+                                        <option>AP</option>
+                                        <option>AM</option>
+                                        <option>BA</option>
+                                        <option>CE</option>
+                                        <option>DF</option>
+                                        <option>ES</option>
+                                        <option>GO</option>
+                                        <option>MA</option>
+                                        <option selected>MT</option>
+                                        <option>MS</option>
+                                        <option>MG</option>
+                                        <option>PA</option>
+                                        <option>PB</option>
+                                        <option>PR</option>
+                                        <option>PE</option>
+                                        <option>PI</option>
+                                        <option>RR</option>
+                                        <option>RO</option>
+                                        <option>RJ</option>
+                                        <option>RN</option>
+                                        <option>RS</option>
+                                        <option>SC</option>
+                                        <option>SP</option>
+                                        <option>SE</option>
+                                        <option>TO</option>
                                     </select>
                                 </div>
                             </div>
@@ -172,10 +229,6 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col" align="right">
-                                <button type="button" class="btn btn-secondary btn-back">Retornar</button>
-                                <button type="button" class="btn btn-success btn-next">Próximo</button>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -186,7 +239,13 @@
             <div class="col">
                 <div class="card">
                     <div class="card-header card-header-bg-color">
-                        <h5 class="card-header-text-color">&nbsp;</h5>
+                        <!-- <h5 class="card-header-text-color">&nbsp;</h5> -->
+                        <div class="row">
+                            <div class="col text-end">
+                                <button type="button" class="btn btn-secondary btn-back">Retornar</button>
+                                <button type="button" class="btn btn-defesacivil btn-next">Próximo</button>
+                            </div>
+                        </div>
                     </div>
                     <div class="card-body">
                         <div class="row g-2">
@@ -268,6 +327,7 @@
                                 <div class="col-6">
                                     <label for="voluntario_cep" class="form-label">CEP</label>
                                     <input type="text" class="form-control" id="voluntario_cep">
+                                    <div class="invalid-feedback" id="feedback_voluntario_cep"></div>
                                 </div>
                             </div>
                             <div class="row g-2">
@@ -293,10 +353,7 @@
                                     <input type="text" class="form-control" id="voluntario_endcomplemento">
                                 </div>
                             </div>
-                            <div class="col" align="right">
-                                <button type="button" class="btn btn-secondary btn-back">Retornar</button>
-                                <button type="button" class="btn btn-success btn-next">Próximo</button>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -307,7 +364,13 @@
             <div class="col">
                 <div class="card">
                     <div class="card-header card-header-bg-color">
-                        <h5 class="card-header-text-color">&nbsp;</h5>
+                       <!--  <h5 class="card-header-text-color">&nbsp;</h5> -->
+                       <div class="row">
+                            <div class="col text-end">
+                                <button type="button" class="btn btn-secondary btn-back">Retornar</button>
+                                <button type="button" class="btn btn-defesacivil btn-next">Próximo</button>
+                            </div>
+                        </div>
                     </div>
                     <div class="card-body">
                         <div class="row g-3">
@@ -546,18 +609,15 @@
                                 </select>
                             </div>
                             <div class="col-12" id="div_outrosformacao">
-                                <!-- Campo dinamico, aparecer quando a opção "outros" for selecionada no select voluntario_formacao" -->
                                 <label for="voluntario_outrosformacao" class="form-label">Especifique a formação</label>
                                 <input type="text" class="form-control" id="voluntario_outrosformacao">
                                 <div class="form-text">Se você escolheu a opção "Outros" em formação então descreva a sua formação. Caso contrário deixe esse campo em branco!</div>
                             </div>
                             <div class="col-12">
-                                <!-- Campo de seleção dinâmico "dropdown with search", disponibilizar opções via API para selecionar -->
                                 <label for="voluntario_profissao" class="form-label">Profissão</label>
                                 <input type="text" class="form-control" id="voluntario_profissao">
                             </div>
                             <div class="col-12" id="div_outrosprofissao">
-                                <!-- Campo dinamico, aparecer quando a opção "outros" for selecionada no select voluntario_profissao" -->
                                 <label for="voluntario_outrosprofissao" class="form-label">Especifique a Profissão</label>
                                 <input type="text" class="form-control" id="voluntario_outrosprofissao">
                                 <div class="form-text">Se você escolheu a opção "Outros" em profissão então descreva a sua profissão. Caso contrário deixe esse campo em branco!</div>
@@ -592,10 +652,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col" align="right">
-                                <button type="button" class="btn btn-secondary btn-back">Retornar</button>
-                                <button type="button" class="btn btn-success btn-next">Próximo</button>
-                            </div>
+                           
                         </div>
                     </div>
                 </div>
@@ -606,7 +663,12 @@
             <div class="col">
                 <div class="card">
                     <div class="card-header card-header-bg-color">
-                        <h5 class="card-header-text-color">&nbsp;</h5>
+                        <!-- <h5 class="card-header-text-color">&nbsp;</h5> -->
+                        <div class="row">
+                            <div class="col text-end">
+                                <button type="button" class="btn btn-secondary btn-back">Retornar</button>
+                            </div>
+                        </div>
                     </div>
                     <div class="card-body">
                         <div class="row g-3">
@@ -629,7 +691,7 @@
                             <div class="row g-2">
                                 <label for="voluntario_tempodisp" class="form-label">Qual é a sua disponibilidade de horas mensais para a atividade voluntária?</label>
                                 <div class="col-3">
-                                    <input type="number" class="form-control" id="voluntario_tempodisp">
+                                    <input type="text" class="form-control" id="voluntario_tempodisp">
                                     <div class="form-text">Informe um valor entre 1 e 24</div>
                                 </div>
                             </div>
@@ -681,9 +743,10 @@
                                     <label class="form-check-label" for="voluntario_dispperiodo3">Noite</label>
                                 </div>
                             </div>
-                            <div class="col" align="right">
-                                <button type="button" class="btn btn-secondary btn-back">Retornar</button>
-                                <button type="button" class="btn btn-success btn-next">Finalizar</button>
+                            <div class="row">
+                                <div class="col text-center">
+                                    <button type="button" class="btn btn-lg btn-defesacivil-final" data-bs-toggle="modal" data-bs-target="#voluntario_finaliza_modal">Finalizar</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -718,7 +781,38 @@
             </div>
           </div>
         </div>
-      </div>
+    </div>
+
+    <div class="modal fade" id="voluntario_finaliza_modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-fullscreen-sm-down">
+            <div class="modal-content modal-defesacivil">
+                <div class="modal-header modal-header-defesacivil">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h3 class="h1-header-color" align="center"><b>Sua inscrição foi realizada com sucesso!</b></h3>
+                    <br>
+                    <p class="h1-header-color" align="center">Quando completarmos as inscrições para formarmos uma turma de voluntários na cidade escolhida, você receberá uma mensagem com o local, a data e o horário de início do Curso.</p>
+                    <br>
+                    <p class="h1-header-color" align="center">Salve nosso e-mail <a href="voluntario@defesacivil.mt.gov.br">voluntario@defesacivil.mt.gov.br</a> e cheque sua caixa de entrada com frequência.</p>
+                    <br>
+                    <p class="h1-header-color" align="center">Mais uma dica: Salve em sua agenda o número 065 XXXXX-XXXXX, ele é do nosso Programa de Voluntariado, nos mande um oi e receba mensagens por SMS e WAPP.</p>
+                    <br>
+                    <p align="center"><b class="h1-header-color">Ah, siga-nos nas redes sociais para mais informações!</b></p>
+                    <div class="mx-auto" style="width: 150px;">
+                        <a href="https://www.facebook.com/dcmatogrosso/"><img src="facebook-logo.png" class="rounded float-start" width="55px"></a>
+                        <a href="https://www.instagram.com/defesacivilmt/"><img src="instagram-logo.png" class="rounded float-end" width="55px"></a>
+                    </div>
+                    <br><br>
+                    <p class="h1-header-color" align="center">Nos encontraremos em breve!</p>
+                    <h5 align="center"><b class="h1-header-color">Obrigado!</b><h5>
+                </div>
+                <div class="modal-footer modal-footer-defesacivil">
+                    <button type="button" class="btn btn-lg btn-defesacivil btn-next" id="volutario_profissao_modal_cancel" data-bs-dismiss="modal">Concluir</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js" integrity="sha512-0XDfGxFliYJPFrideYOoxdgNIvrwGTLnmK20xZbCAvPfLGQMzHUsaqZK8ZoH+luXGRxTrS46+Aq400nCnAT0/w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -858,6 +952,9 @@
             checkValidInput($(this), 8, 'feedback_voluntario_numerocnh', 'A CNH deve conter oito números');
         });
 
+        $('#voluntario_cep').mask('00000-000').focusout(function(){
+            checkValidInput($(this), 9, 'feedback_voluntario_cep', 'O CEP deve conter oito números');
+        });
 
         //feedback_voluntario_telefone-
 
@@ -886,6 +983,8 @@
                 }).val('');
             }
         });
+
+        
 
         $('#voluntario_tempodisp').mask('00');
     </script>
@@ -974,6 +1073,12 @@
             http://apps.diogomachado.com/api-profissoes/v1?callback=CALLBACK_JSONP&s=
             créditos: http://apps.diogomachado.com/api-profissoes/
         */
+
+        var modalVolunteerFinal = new bootstrap.Modal($('#voluntario_finaliza_modal'), {
+            keyboard: false
+        });
+
+        
 
         $(document).ready(function() {
             $(`
@@ -1097,7 +1202,13 @@
                 counter --;
                 changeCard(counter);
             });
-    
+            
+            $('.alpha-only').on("input", function(){
+                var regexp = /[^a-zA-Z]/g;
+                if($(this).val().match(regexp)){
+                  $(this).val( $(this).val().replace(regexp,'') );
+                }
+            });
 
         });
     </script>
